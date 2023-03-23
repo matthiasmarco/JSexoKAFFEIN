@@ -1,0 +1,73 @@
+<script>
+
+function compute(){
+
+    number = document.getElementById('EnteredNumber').value;
+
+    digits = ["0","1","2","3","4","5","6","7","8","9"];
+    object = number.split("");
+
+    k=0;
+
+    for (char in object){
+        if (object[char] in digits){
+        }else{
+            k=1;
+        }
+    }
+
+    if (k==1){
+        alert("Please enter a number");
+    }else{
+        ratio = number/3;
+
+        Sratio = ratio.toString();
+        ratio2 = Sratio.split('.');        
+    
+        if (ratio2.length>1){
+            divided_by_3 = false;
+        }else{
+            divided_by_3 = true;
+        }
+
+        ratio = number/5;
+
+        Sratio = ratio.toString();
+        ratio2 = Sratio.split('.');        
+    
+        if (ratio2.length>1){
+            divided_by_5 = false;
+        }else{
+            divided_by_5 = true;
+        }
+
+        console.log("divided_by_5: "+divided_by_5);
+        console.log("divided_by_3: "+divided_by_3);
+
+        if (divided_by_3==true && divided_by_5==false){
+            alert("fizz");
+        };
+
+        if (divided_by_3==false && divided_by_5==true){
+            alert("buzz");
+        };
+
+        if (divided_by_3==true && divided_by_5==true){
+            alert("fizzbuzz");
+        };
+
+        if (divided_by_3==false && divided_by_5==false){
+            alert(number);
+        };
+
+    }
+       
+}
+
+</script>
+
+<label for="name">Enter a number:</label>
+
+<input type="text" id="EnteredNumber">
+
+<button onclick="compute()">Submit</button>
